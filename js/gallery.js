@@ -65,7 +65,7 @@ const images = [
 ];
 
 const gallery = document.querySelector('.gallery');
-
+const fragment = document.createDocumentFragment();
 
 images.forEach((image) => {
     const { preview, original, description } = image;
@@ -87,10 +87,10 @@ images.forEach((image) => {
 
     link.appendChild(img);
     galleryItem.appendChild(link);
-    gallery.appendChild(galleryItem);
-
-
+    fragment.appendChild(galleryItem);
 });
+
+gallery.appendChild(fragment);
 
 gallery.addEventListener('click', (event) => {
     event.preventDefault();
